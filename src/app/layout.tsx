@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 export const metadata = {
   title: "Credo",
@@ -16,6 +17,8 @@ export default function RootLayout({
       <body className="bg-white text-black">
         <Navbar />
         <main className="pt-16">{children}</main>
+
+        <Footer/>
       </body>
     </html>
   );
