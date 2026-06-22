@@ -34,7 +34,7 @@ export default function Collections() {
 
             {/* IMAGE */}
             <div
-              className={`relative aspect-[4/5] overflow-hidden ${
+              className={`relative aspect-[4/5] overflow-hidden group ${
                 index % 2 === 1 ? "md:order-2" : ""
               }`}
             >
@@ -48,8 +48,17 @@ export default function Collections() {
                 className="
                   absolute inset-0
                   object-cover
+
                   transition-transform duration-700 ease-out
+
                   group-hover:scale-105
+                  group-focus-within:scale-105
+                  group-active:scale-105
+
+                  opacity-0
+                  group-hover:opacity-100
+                  group-focus-within:opacity-100
+                  group-active:opacity-100
                 "
               />
 
@@ -62,14 +71,28 @@ export default function Collections() {
                 className="
                   absolute inset-0
                   object-cover
+
                   transition-all duration-700 ease-out
+
                   group-hover:opacity-0
+                  group-focus-within:opacity-0
+                  group-active:opacity-0
+
                   group-hover:scale-105
+                  group-active:scale-105
                 "
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/0 transition-all duration-700 group-hover:bg-black/10" />
+              <div className="
+                absolute inset-0
+                bg-black/0
+                transition-all duration-700
+
+                group-hover:bg-black/10
+                group-focus-within:bg-black/10
+                group-active:bg-black/10
+              " />
 
               {/* Index */}
               <div className="absolute top-4 left-4 text-white/70 text-xs tracking-[0.3em]">
@@ -83,6 +106,7 @@ export default function Collections() {
                 index % 2 === 1 ? "md:order-1 md:text-right" : ""
               }`}
             >
+
               {/* Ghost text */}
               <div className="absolute -top-10 left-0 text-[80px] md:text-[110px] font-light text-black/10 pointer-events-none select-none">
                 {item.title}
@@ -94,9 +118,7 @@ export default function Collections() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="
-                  text-4xl md:text-5xl font-light tracking-wide leading-tight
-                "
+                className="text-4xl md:text-5xl font-light tracking-wide leading-tight"
               >
                 {item.title}
               </motion.h3>
@@ -133,13 +155,17 @@ export default function Collections() {
                     uppercase
                     px-6 py-2
                     transition-all duration-300
+
                     hover:bg-black hover:text-white
+                    active:bg-black active:text-white
+                    focus-visible:bg-black focus-visible:text-white
                   "
                 >
                   View Collection
                 </Button>
               </motion.div>
             </div>
+
           </motion.div>
         ))}
       </div>
